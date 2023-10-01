@@ -10,6 +10,10 @@ public static class Program
         var inputFile = new Lab1.Model.InputFile(INPUTPATH);
         Tokenizer.Tokenize(inputFile);
         Console.WriteLine("Tokens:");
+        Console.WriteLine(String.Format("| {0,30} | {1,5} |", "Word", "Count"));
+        Console.WriteLine("------------------------------------------");
         inputFile.Tokens.ForEach(token => Console.WriteLine(String.Format("| {0,30} | {1,5} |", token.Value, token.Count)));
+        Console.WriteLine("------------------------------------------");
+        Console.WriteLine(String.Format("| {0,30} | {1,5} |", "Total", inputFile.Tokens.Sum(token => token.Count)));
     }
 }
